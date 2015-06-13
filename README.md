@@ -1,5 +1,5 @@
-idle
-====
+Idle
+=====
 
 Cross-platform idle time detection in Go (Golang).
 
