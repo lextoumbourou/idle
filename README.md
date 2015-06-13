@@ -5,10 +5,10 @@ Cross-platform idle time detection in Go (Golang).
 
 <img src="https://lh6.googleusercontent.com/-sm9TUtep2xs/T3R7ZCDrJVI/AAAAAAAAAKQ/jaSnMOyRJGw/w856-h1228-no/2_b%2Bdata%2Bnieznana.jpg" height="400"><br>
 
-Read and run [idle-daemon.go](idle-daemon) for an example:
+Read and run [idle.go](idle) command for an example of the API usage:
 
 ```
-> go run cmd/idle-daemon.go
+> go run cmd/idle.go
 2015/06/13 22:55:43 Idle for 1 seconds.
 2015/06/13 22:55:44 Idle for 2 seconds.
 2015/06/13 22:55:45 Idle for 3 seconds.
