@@ -35,7 +35,5 @@ func Get() (time.Duration, error) {
 		return output, err
 	}
 
-	output, err = parseIORegOutput(ioRegOutput)
-
-	return output, err
+	return parseIORegOutput(ioRegOutput)
 }
