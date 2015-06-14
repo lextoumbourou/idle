@@ -4,8 +4,12 @@ Idle
 Cross-platform idle time detection in Go (Golang).
 
 <img src="https://lh6.googleusercontent.com/-sm9TUtep2xs/T3R7ZCDrJVI/AAAAAAAAAKQ/jaSnMOyRJGw/w856-h1228-no/2_b%2Bdata%2Bnieznana.jpg" height="400"><br>
+[Untitled, Zdislav Beksinski](http://www.wikiart.org/en/zdislav-beksinski)
 
-Read and run [idle.go](idle) command for an example of the API usage:
+Overview
+--------
+
+Read and run [idle.go](./cmd/idle.go) command for an example of the API usage:
 
 ```
 > go run cmd/idle.go
@@ -27,7 +31,7 @@ To do
 
 * Docs.
 * Windows support.
-* Better OSX: Figure out how to collect these values using ```c.go```. (The way I'm currently doing it is brittle as fuck).
+* Better OSX: Figure out how to collect these values using ```c.go```.
 * Test Linux.
 
 License
