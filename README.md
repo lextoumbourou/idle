@@ -6,6 +6,8 @@ Cross-platform idle time detection in Go (Golang).
 <img src="https://lh6.googleusercontent.com/-sm9TUtep2xs/T3R7ZCDrJVI/AAAAAAAAAKQ/jaSnMOyRJGw/w856-h1228-no/2_b%2Bdata%2Bnieznana.jpg" height="400"><br>
 [Untitled, Zdislav Beksinski](http://www.wikiart.org/en/zdislav-beksinski)
 
+[![Build Status](https://travis-ci.org/lextoumbourou/idle.svg?branch=master)](https://travis-ci.org/lextoumbourou/idle)
+
 Overview
 --------
 
