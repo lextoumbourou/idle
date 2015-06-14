@@ -7,11 +7,26 @@ import (
 	"time"
 )
 
-// To do: implement this.
-func parseIORegOutput(raw []byte) (time.Duration, error) {
+type fetcher interface {
+	Fetch() ([]byte, error)
+}
+
+type ioRegFetcher struct{}
+
+func (ioRegFetcher) Fetch() ([]byte, error) {
+	return exec.Command("ioreg", "-c", "IOHIDSystem").Output()
+}
+
+func parseIdleFromIOReg(f fetcher) (time.Duration, error) {
+	var output time.Duration
 	var idleInNs string
 
-	rawStr := string(raw)
+	ioRegOutput, err := f.Fetch()
+	if err != nil {
+		return output, err
+	}
+
+	rawStr := string(ioRegOutput)
 	lines := strings.Split(rawStr, "\n")
 	for _, line := range lines {
 		if !strings.Contains(line, "HIDIdleTime") {
@@ -26,14 +41,8 @@ func parseIORegOutput(raw []byte) (time.Duration, error) {
 	return time.ParseDuration(fmt.Sprintf("%sns", idleInNs))
 }
 
-// ToDo: Use cgo coolness instead of spawning a proc.
+// Get idle time for Darwin (OSX)
 func Get() (time.Duration, error) {
-	var output time.Duration
-
-	ioRegOutput, err := exec.Command("ioreg", "-c", "IOHIDSystem").Output()
-	if err != nil {
-		return output, err
-	}
-
-	return parseIORegOutput(ioRegOutput)
+	fetcher := ioRegFetcher{}
+	return parseIdleFromIOReg(fetcher)
 }
