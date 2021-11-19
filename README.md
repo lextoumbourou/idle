@@ -32,7 +32,7 @@ To do
 ------
 
 * Docs.
-* Windows support.
+* ~~Windows support.~~
 * Better OSX: Figure out how to collect these values using ```c.go```.
 * Test Linux.
 
