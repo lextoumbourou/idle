@@ -17,9 +17,14 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y xvfb xdotool dbus
       - run: go vet ./...
-      - run: go test -race -count=1 -v ./...
+      - name: Test (race detector)
+        if: runner.os != 'Windows'
+        run: go test -race -count=1 -v ./...
+      - name: Test (Windows, no cgo, so no race detector)
+        if: runner.os == 'Windows'
+        run: go test -count=1 -v ./...
         env:
-          CGO_ENABLED: ${{ runner.os == 'Windows' && '0' || '1' }}
+          CGO_ENABLED: "0"
       - name: Build without cgo
         run: go build ./...
         env:
